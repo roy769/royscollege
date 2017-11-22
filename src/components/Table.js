@@ -12,10 +12,10 @@ export default ({data, header}) =>
   <Table>
     <TableHeader>
       <TableRow>
-        {
+        {/* {
           header.map((x,i) =>
-        }
-        <TableHeaderColumn>{x.name}</TableHeaderColumn>
+        } */}
+        {/* <TableHeaderColumn>{x.name}</TableHeaderColumn> */}
         <TableHeaderColumn>ID</TableHeaderColumn>
         <TableHeaderColumn>Name</TableHeaderColumn>
         <TableHeaderColumn>Status</TableHeaderColumn>
