@@ -5,47 +5,34 @@ import {
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn,
+  TableRowColumn
 } from 'material-ui/Table';
+
+const row = (x, i, header) =>
+  <TableRow key = {`tr-${i}`}>
+    {
+      header.map((y, k) =>
+        <TableRowColumn key = {`trc-${k}`}>
+          {x[y.prop]}
+        </TableRowColumn>
+      )
+    }
+  </TableRow>
 
 export default ({data, header}) =>
   <Table>
     <TableHeader>
       <TableRow>
-        {/* {
-          header.map((x,i) =>
-        } */}
-        {/* <TableHeaderColumn>{x.name}</TableHeaderColumn> */}
-        <TableHeaderColumn>ID</TableHeaderColumn>
-        <TableHeaderColumn>Name</TableHeaderColumn>
-        <TableHeaderColumn>Status</TableHeaderColumn>
+        {
+          header.map((x, i) =>
+           <TableHeaderColumn
+             key = {`thc-${i}`}>
+              {x.name}
+                </TableHeaderColumn>
+            )}
       </TableRow>
     </TableHeader>
-    <TableBody>
-      <TableRow>
-        <TableRowColumn>1</TableRowColumn>
-        <TableRowColumn>John Smith</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
-      </TableRow>
-      <TableRow>
-        <TableRowColumn>2</TableRowColumn>
-        <TableRowColumn>Randal White</TableRowColumn>
-        <TableRowColumn>Unemployed</TableRowColumn>
-      </TableRow>
-      <TableRow>
-        <TableRowColumn>3</TableRowColumn>
-        <TableRowColumn>Stephanie Sanders</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
-      </TableRow>
-      <TableRow>
-        <TableRowColumn>4</TableRowColumn>
-        <TableRowColumn>Steve Brown</TableRowColumn>
-        <TableRowColumn>Employed</TableRowColumn>
-      </TableRow>
-      <TableRow>
-        <TableRowColumn>5</TableRowColumn>
-        <TableRowColumn>Christopher Nolan</TableRowColumn>
-        <TableRowColumn>Unemployed</TableRowColumn>
-      </TableRow>
+  <TableBody>
+      {data.map((x,i) => row (x, i, header))}
     </TableBody>
-  </Table>
+  </Table>;

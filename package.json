@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "material-ui": "^0.19.4",
+    "mysql2": "^1.5.1",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-scripts": "1.0.17",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-tap-event-plugin": "^3.0.2",
+    "sequelize": "^4.23.0"
   },
   "scripts": {
     "start": "react-scripts start",

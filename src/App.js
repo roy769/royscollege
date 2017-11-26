@@ -2,33 +2,31 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Form from './components/Form';
 import Table from './components/Table';
 
+injectTapEventPlugin();
+
 class App extends Component {
 
   state = {
-    fields: {}
-  };
-
-  onChange = updatedValue => {
-    this.setState({
-      fields: {
-        ...this.state.fields,
-        ...updatedValue
-        }
-      });
-    // console.log("App comp got: ", fields );
+    data: []
   };
 
   render() {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Form onChange={fields => this.onChange (fields) }/>
+          <Form
+            onSubmit={submission =>
+              this.setState ({
+                data: [...this.state.data, submission]
+              })}
+          />
             <Table
-              data = {[]}
+              data = {[this.state.data]}
                 header = {[
                   {
                     name: "Specific Major",
@@ -41,7 +39,7 @@ class App extends Component {
                   {
                     name: "Specific College",
                     prop: 'specificCollege',
-                  },
+                  }
                 ]}
               />
             </div>
